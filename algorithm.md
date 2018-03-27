@@ -49,18 +49,17 @@ function quickSort($arr)
 	$leftArr = array();
 	$rightArr = array();
 
-	foreach ($arr as $v) {
-		if ($baseNum > $v) {
-			$leftArr[] = $v;
-		} 
-		if ($baseNum < $v) {
-			$rightArr[] = $v;
-		}
+	$count = count($arr);
+	for ($i=1; $i<$count; $i++){
+	    if($arr[$i] <= $baseNum){
+	        $left[] = $arr[$i];
+	    }
+	    else{
+		$right[] = $arr[$i];
+	    }
 	}
-	
 	$leftArr = quickSort($leftArr);
 	$leftArr[] = $baseNum;
-
 	$rightArr = quickSort($rightArr);
 
 	return array_merge($leftArr, $rightArr);
